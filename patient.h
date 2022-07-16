@@ -1,0 +1,26 @@
+#ifndef PATIENT_H
+#define PATIENT_H
+
+#include <QString>
+#include <QDate>
+
+class Patient
+{
+public:
+    Patient();
+    Patient(QString r);
+
+    bool validate_rxr(QString r);
+    bool validate_nhs(QString n);
+
+private:
+    bool valid;         // Valid patient - has minimum of RXR
+    int db_id;          // Database table id
+    QString RXR;        // RXR number
+    QString NHS;        // NHS number
+    QString fname;      // First name
+    QString sname;      // Surname
+    QDate dob;          // Date of birth
+};
+
+#endif // PATIENT_H

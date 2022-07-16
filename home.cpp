@@ -19,3 +19,9 @@ void Home::on_actionExit_triggered()
     qApp->quit();
 }
 
+
+void Home::on_actionDVLA_invoice_triggered()
+{
+
+}
+

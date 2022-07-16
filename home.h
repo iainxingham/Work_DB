@@ -18,6 +18,8 @@ public:
 private slots:
     void on_actionExit_triggered();
 
+    void on_actionDVLA_invoice_triggered();
+
 private:
     Ui::Home *ui;
 };

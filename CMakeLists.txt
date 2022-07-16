@@ -13,12 +13,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Sql)
 
 set(PROJECT_SOURCES
         main.cpp
         home.cpp
         home.h
         home.ui
+        patient.h
+        patient.cpp
+        database.h
+        database.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -45,6 +50,7 @@ else()
 endif()
 
 target_link_libraries(Work_DB PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(Work_DB PRIVATE Qt${QT_VERSION_MAJOR}::Sql)
 
 set_target_properties(Work_DB PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

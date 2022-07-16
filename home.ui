@@ -31,7 +31,21 @@
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionPredicted_values"/>
+   </widget>
+   <widget class="QMenu" name="menuPaperwork">
+    <property name="title">
+     <string>Paperwork</string>
+    </property>
+    <addaction name="actionDVLA_invoice"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuTools"/>
+   <addaction name="menuPaperwork"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionImport">
@@ -42,6 +56,16 @@
   <action name="actionExit">
    <property name="text">
     <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionPredicted_values">
+   <property name="text">
+    <string>Predicted values</string>
+   </property>
+  </action>
+  <action name="actionDVLA_invoice">
+   <property name="text">
+    <string>DVLA invoice</string>
    </property>
   </action>
  </widget>
