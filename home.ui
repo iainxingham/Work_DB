@@ -35,7 +35,8 @@
     <property name="title">
      <string>Tools</string>
     </property>
-    <addaction name="actionPredicted_values"/>
+    <addaction name="actionTLCO"/>
+    <addaction name="actionBMI_calculator"/>
    </widget>
    <widget class="QMenu" name="menuPaperwork">
     <property name="title">
@@ -58,14 +59,19 @@
     <string>Exit</string>
    </property>
   </action>
-  <action name="actionPredicted_values">
+  <action name="actionTLCO">
    <property name="text">
-    <string>Predicted values</string>
+    <string>TLCO correction</string>
    </property>
   </action>
   <action name="actionDVLA_invoice">
    <property name="text">
     <string>DVLA invoice</string>
+   </property>
+  </action>
+  <action name="actionBMI_calculator">
+   <property name="text">
+    <string>BMI calculator</string>
    </property>
   </action>
  </widget>

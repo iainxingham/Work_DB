@@ -41,5 +41,13 @@ QString Patient::clean_rxr(QString r)
 
 QString Patient::clean_nhs(QString n)
 {
-    return n.trimmed();
+    static QRegularExpression re("^(\\d{3})\\s*(\\d{3})\\s*(\\d{4})$");
+    QRegularExpressionMatch match;
+
+    match = re.match(n.trimmed());
+    if(match.hasMatch()) {
+        return (match.captured(1) + " " + match.captured(2) + " " + match.captured(3));
+    }
+
+    return "NULL";
 }

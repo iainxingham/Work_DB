@@ -20,6 +20,8 @@ private slots:
 
     void on_actionDVLA_invoice_triggered();
 
+    void on_actionTLCO_triggered();
+
 private:
     Ui::Home *ui;
 };

@@ -26,6 +26,11 @@ set(PROJECT_SOURCES
         patient.cpp
         database.h
         database.cpp
+        tlcocalc.h
+        tlcocalc.cpp
+        tlcocalc.ui
+        physiology.h
+        physiology.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

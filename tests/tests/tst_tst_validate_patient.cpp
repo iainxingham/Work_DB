@@ -16,7 +16,8 @@ private slots:
     void test_RXR();
     void test_NHS_data();
     void test_NHS();
-
+    void test_clean_NHS_data();
+    void test_clean_NHS();
 };
 
 tst_validate_patient::tst_validate_patient()
@@ -79,6 +80,31 @@ void tst_validate_patient::test_NHS()
     QFETCH(bool, expectedresult);
 
     QCOMPARE(Patient::validate_nhs(input), expectedresult);
+}
+
+void tst_validate_patient::test_clean_NHS_data()
+{
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<QString>("expectedresult");
+
+    QTest::newRow("Well formed") << "000 111 2222" << "000 111 2222";
+    QTest::newRow("Leading whitespace") << "   000 111 2222" << "000 111 2222";
+    QTest::newRow("Trailing whitespace") << "000 111 2222  " << "000 111 2222";
+    QTest::newRow("No internal whitespace") << "0001112222" << "000 111 2222";
+    QTest::newRow("Weird internal whitespace") << "000     111\t2222" << "000 111 2222";
+
+    QTest::newRow("Too few digits") << "000 111 222" << "NULL";
+    QTest::newRow("Too many digits") << "000 1111 2222" << "NULL";
+    QTest::newRow("Whitespace in the wrong place") << "00 0 111 22 22" << "NULL";
+    QTest::newRow("Too many digits, no white space") << "00011122223" << "NULL";
+}
+
+void tst_validate_patient::test_clean_NHS()
+{
+    QFETCH(QString, input);
+    QFETCH(QString, expectedresult);
+
+    QCOMPARE(Patient::clean_nhs(input), expectedresult);
 }
 
 QTEST_APPLESS_MAIN(tst_validate_patient)
